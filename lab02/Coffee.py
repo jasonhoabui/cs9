@@ -1,9 +1,10 @@
-class Coffee(self):
+from Beverage import Beverage
+
+class Coffee(Beverage):
 
     def __init__(self, ounces, price, style):
-        self.ounces = ounces
-        self.price = price
+        super().__init__(ounces, price)
         self.style = style
 
     def getInfo(self):
-        pass
+        return f"{self.style} Coffee, {super().getInfo()}"

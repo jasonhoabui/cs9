@@ -1,7 +1,11 @@
-class FruitJuice(self):
+from Beverage import Beverage
+
+class FruitJuice(Beverage):
 
     def __init__(self, ounces, price, fruits):
-        pass
+        super().__init__(ounces, price)
+        self.fruits = fruits
 
     def getInfo(self):
-        pass
+        s = "/".join(self.fruits) + " Juice"
+        return f"{s}, {super().getInfo()}"

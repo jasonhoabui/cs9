@@ -5,13 +5,17 @@ class Beverage:
         self.price = price
 
     def updateOunces(self, newOunces):
-        pass
+        self.ounces = newOunces
 
     def updatePrice(self, newPrice):
-        pass
+        self.price = newPrice
 
     def getOunces(self):
-        pass
+        return self.ounces
 
     def getPrice(self):
-        pass
+        return self.price
+
+    def getInfo(self):
+        return ("{} oz, ${:.2f}").format(self.ounces, self.price)
+    
