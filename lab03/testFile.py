@@ -34,4 +34,8 @@ def test_reverseString():
     assert d4 == "sa3pL1oJa"
 
 def test_removeSubString():
-    pass
+    assert removeSubString("Lolololol", "lol") == "Loo"
+    assert removeSubString("jajajaJA", "ja") == "JA"
+    assert removeSubString("12341", "23") == "141"
+    assert removeSubString("12341jaja", "23ja") == "12341jaja"
+    assert removeSubString("asdj123K123bg", "123K") == "asdj123bg"

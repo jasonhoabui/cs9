@@ -3,13 +3,12 @@ def integerDivision(n, k):
         return 1 + integerDivision(n - k, k)
     return 0
 
-#think about
 def collectEvenInts(listOfInt):
     if listOfInt == []:
         return []
-    if listOfInt[-1] % 2 != 0:
-        listOfInt.pop(-1)
-    return collectEvenInts(listOfInt[-1])
+    if listOfInt[-1] % 2 == 0:
+        return collectEvenInts(listOfInt[:-1]) + [listOfInt[-1]]
+    return collectEvenInts(listOfInt[:-1])
 
 def countVowels(someString):
     if someString == "":
@@ -25,8 +24,11 @@ def reverseString(s):
         return s
     return reverseString(s[1:]) + s[0]
 
-#think about
 def removeSubString(s, sub):
-    pass 
+    if len(s) < len(sub):
+        return s 
+    if s[:len(sub)] == sub:
+        return removeSubString(s[len(sub):], sub)
+    return s[0] + removeSubString(s[1:], sub)
 
-print(collectEvenInts([1,2,3,4,5]))
+print(removeSubString("12341jaja", "23ja"))
