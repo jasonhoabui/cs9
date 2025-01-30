@@ -30,5 +30,3 @@ def removeSubString(s, sub):
     if s[:len(sub)] == sub:
         return removeSubString(s[len(sub):], sub)
     return s[0] + removeSubString(s[1:], sub)
-
-print(removeSubString("12341jaja", "23ja"))
