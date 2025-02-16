@@ -1,31 +1,17 @@
-from Movie import Movie
-from MovieCollection import MovieCollection
-
 class MovieCollectionNode:
 
-    def __init__(self):
-        pass
+    def __init__(self, data):
+        self.data = data
+        self.next = next
 
-    def isEmpty(self):
-        pass
+    def getData(self):
+        return self.data
 
-    def getNumberOfMovies(self):
-        pass
+    def getNext(self):
+        return self.next
 
-    def insertMovie(self, movie):
-        pass
+    def setData(self, newData):
+        self.data - newData
 
-    def getAllMoviesInCollection(self):
-        pass
-
-    def getMoviesByDirector(self, director):
-        pass
-
-    def removeDirector(self, director):
-        pass
-
-    def avgDirectorRating(self, director):
-        pass
-
-    def recursiveSearchMovie(self, movieName, movieNode):
-        pass
+    def setNext(self, newNode):
+        self.next = newNode
