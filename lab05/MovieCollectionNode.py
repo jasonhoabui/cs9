@@ -2,7 +2,7 @@ class MovieCollectionNode:
 
     def __init__(self, data):
         self.data = data
-        self.next = next
+        self.next = None
 
     def getData(self):
         return self.data
@@ -11,7 +11,7 @@ class MovieCollectionNode:
         return self.next
 
     def setData(self, newData):
-        self.data - newData
+        self.data = newData
 
     def setNext(self, newNode):
         self.next = newNode

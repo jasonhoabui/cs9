@@ -1,43 +1,84 @@
-class MovieCollection:
+from MovieCollectionNode import MovieCollectionNode
+from Movie import Movie
 
+class MovieCollection:
     def __init__(self):
-        self.head = head
+        self.head = None
 
     def isEmpty(self):
         return self.head == None
 
     def getNumberOfMovies(self):
-        current = self.head
+        temp = self.head
         count = 0
-        while current != None:
+        while temp != None:
             count += 1
-            current = current.getNext()
+            temp = temp.getNext()
         return count
 
     def insertMovie(self, movie):
-        pass
+        newNode = MovieCollectionNode(movie)
+        if self.head is None or movie < self.head.getData():
+            newNode.setNext(self.head)
+            self.head = newNode
+            return
+
+        current = self.head
+        while current.getNext() and current.getNext().getData() < movie:
+            current = current.getNext()
+
+        newNode.setNext(current.getNext())
+        current.setNext(newNode)
 
     def getAllMoviesInCollection(self):
-        total = ""
         current = self.head
+        movies = ""
         while current != None:
-            total += current.getData().getMovieDetails() + "\n"
+            movies += current.getData().getMovieDetails() + "\n"
             current = current.getNext()
-        return total
+
+        return movies
 
     def getMoviesByDirector(self, director):
-        pass
+        movies = ""
+        current = self.head
+        while current != None:
+            if current.getData().getDirector() == director.upper():
+                movies += current.getData().getMovieDetails() + "\n"
+            current = current.getNext()
+        return movies
 
     def removeDirector(self, director):
-        pass
+        current = self.head
+        previous = None
+        
+        while current != None and current.getData().getDirector() == director.upper():
+            self.head = current.getNext()
+            current = self.head
+
+        while current != None:
+            if current.getData().getDirector() == director.upper():
+                previous.setNext(current.getNext())
+            else:
+                previous = current
+            current = current.getNext()
 
     def avgDirectorRating(self, director):
-        pass
+        director = director.upper()
+        total_rating = 0
+        count = 0
+        current = self.head
+        while current:
+            movie = current.getData()
+            if movie.getDirector() == director and movie.getRating() is not None:
+                total_rating += movie.getRating()
+                count += 1
+            current = current.getNext()
+        return round(total_rating / count, 2) if count > 0 else None
 
     def recursiveSearchMovie(self, movieName, movieNode):
-        if movieNode == None:
+        if movieNode is None:
             return False
-        elif movieNode.getData().getMovieName() = movieName.upper():
+        if movieNode.getData().getMovieName().lower() == movieName.lower():
             return True
-        else:
-            return self.recursiveSearchMovie(movieName, movieNode.next)
+        return self.recursiveSearchMovie(movieName, movieNode.getNext())
