@@ -30,13 +30,26 @@ def mergesort(apartmentList):
             k += 1
 
 def ensureSortedAscending(apartmentList):
-    pass
+    for i in range(len(apartmentList) - 1):
+        if not apartmentList[i] < apartmentList[i + 1]:
+            return False
+    return True
 
 def getBestApartment(apartmentList):
-    pass
+    mergesort(apartmentList)
+    return apartmentList[0].getApartmentDetails()
 
 def getWorstApartment(apartmentList):
-    pass
+    mergesort(apartmentList)
+    return apartmentList[len(apartmentList) - 1].getApartmentDetails()
+
 
 def getAffordableApartments(apartmentList, budget):
-    pass
+    canAfford = []
+    stringAfford = ""
+    mergesort(apartmentList)
+    for i in apartmentList:
+        if i.getRent() <= budget:
+            canAfford.append(i.getApartmentDetails())
+            stringAfford = "\n".join(canAfford)
+    return stringAfford

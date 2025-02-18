@@ -1,5 +1,10 @@
 from Apartment import Apartment
 from lab06 import mergesort
+from lab06 import ensureSortedAscending
+from lab06 import getBestApartment
+from lab06 import getWorstApartment
+from lab06 import getAffordableApartments
+
 
 def test_getApartmentDetails():
     a0 = Apartment(114514, 100, "bad")
@@ -33,6 +38,24 @@ def test_eq():
     a5=Apartment(120,50,"excellent")
     assert (a1==a2) == False
     assert (a3==a4) == True
+
+def test_mergesort():
+   numList1 = [9,8,7,6,5,4,3,2,1]
+   numList2 = [1,2,3,4,5,6,7,8,9]
+   numList3 = []
+   numList4 = [1,9,2,8,3,7,4,6,5]
+   numList5 = [5,4,6,3,7,2,8,1,9]
+   mergesort(numList1)
+   mergesort(numList2)
+   mergesort(numList3)
+   mergesort(numList4)
+   mergesort(numList5)
+
+   assert numList1 == [1,2,3,4,5,6,7,8,9]
+   assert numList2 == [1,2,3,4,5,6,7,8,9]
+   assert numList3 == []
+   assert numList4 == [1,2,3,4,5,6,7,8,9]
+   assert numList5 == [1,2,3,4,5,6,7,8,9]
 
 def test_ensureSortedAscending_sample():
     a0 = Apartment(1222, 222, "average")
