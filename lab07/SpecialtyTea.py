@@ -12,12 +12,3 @@ class SpecialtyTea(Tea):
 
     def getTeaDetails(self):
         return f"SPECIALTY TEA\nSize: {self.size}\nName: {self.name}\nPrice: ${self.price:.2f}\n"
-
-
-sp1 = SpecialtyTea("S", "Earl Grey")
-
-assert sp1.getTeaDetails() == \
-"SPECIALTY TEA\n\
-Size: S\n\
-Name: Earl Grey\n\
-Price: $12.00\n"

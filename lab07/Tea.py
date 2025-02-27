@@ -1,8 +1,8 @@
 class Tea:
     
-    def __init__(self, size, price = 0.0):
+    def __init__(self, size):
         self.size = size
-        self.price = price
+        self.price = 0.0
     
     def getPrice(self):
         return self.price
@@ -13,5 +13,5 @@ class Tea:
     def getSize(self):
         return self.size
 
-    def setSize(self):
+    def setSize(self, size):
         self.size = size
