@@ -167,6 +167,7 @@ class BinarySearchTree:
                 else:
                     currentNode.replaceNodeData(currentNode.rightChild.key, \
                     currentNode.rightChild.payload, currentNode.rightChild.leftChild, currentNode.rightChild.rightChild)
+                    
     def inOrder(self, node):
         ret = ""
         if node != None:
